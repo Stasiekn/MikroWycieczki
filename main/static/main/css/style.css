@@ -1,0 +1,55 @@
+ header{
+    background: #ffffff;
+}
+
+.banner-area .height {
+  height: 540px;
+}
+
+.banner-area .generic-height {
+  height: 140px;
+}
+
+.banner-area .banner-content {
+  margin-top: 50px;
+}
+
+.banner-area .banner-content h1 {
+  font-size: 36px;
+  font-weight: 100;
+  line-height: 1.25em;
+}
+
+.banner-area .banner-content h1 span {
+  font-weight: 500;
+}
+.hero-overlay-bg {
+  background: -webkit-linear-gradient(left top, #91d1ff, #a387ff);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #91d1ff, #a387ff);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #91d1ff, #a387ff);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #91d1ff, #a387ff);
+  /* Standard syntax */
+  opacity: 0.9;
+}
+
+
+
+.nav-pills>li>a{
+    color: #818496;
+    font-size: 20px;
+    font-family: "Lato Light";
+}
+
+.nav-pills>li>a.active,
+.nav-pills>li>a:hover,
+.nav-pills>li>a:focus {
+  background-color: #4ab0fa;
+  color: white;
+}
+
+h2{
+    font-size: 80px
+}
