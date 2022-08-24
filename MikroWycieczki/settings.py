@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main.apps.MainConfig',
+    'posts.apps.PostsConfig',
     'list.apps.ListConfig',
     'registration.apps.RegistrationConfig',
-    'galeries.apps.GaleriesConfig'
+    'galeries.apps.GaleriesConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
