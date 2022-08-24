@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'general.html' %}
+    {% load thumbnail %}
+
+    {% block title %}Galerie{% endblock %}
+
+    {% block content %}
+        <h4> Cos działa</h4>
+        <div class="row">
+            {% for gallery in page_obj %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card h-100">
+                        {% thumbnail gallery.photos.first.image "300x300" crop="center" as im %}
+                            <img class="card-img-top" src="{{ im.url }}" alt="">
+                        {% endthumbnail %}
+                        <div class="card-body">
+                                <h4 class="card-title text-center">{{ gallery.title }}</h4>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{% url "galleries:details" gallery.id %}" class="btn btn-primary">Pokaż</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if page_obj %}
+        <div class="row">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page==1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.numpages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                    <a href="?page=={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        {% endif %}
+        {% if gallery_form %}
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <form id="gallery_form" method="post" action=".">
+                    {% csrf_token %}
+                    <input type="submit" name="submit" value="Submit" class="btn btn-primary"/>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        {% if photo_form %}
+            <div class="row">
+                <h2>Dodaje zdjęcie do galerii {{ gallery.title }}</h2>
+                <div>
+                    {%  for photo in gallery.photos.all %}
+                        {% thumbnail gallery_image.image "x80" as im %}
+                            <img scr="{{ im.url }}" alt=""/>
+                        {% endthumbnail %}
+                    {% endfor %}
+                </div>
+                <div class="col-6 offset-md-3">
+                    <form id="photo_form" method="post" action="." enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <input type="submit" name="submit" value="Submit" class="btn btn-primary"/>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
+</head>
+<body>
+
+</body>
+</html>

@@ -1,11 +1,19 @@
-{% extends "general.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "general.html" %}
+    {% block title %}Utwórz użytkownika{% endblock %}
 
-{% block title %}Create an Account{% endblock %}
-{#{% load crispy_form_tags %}#}
 
-{% block content %}
-    <form method="POST" class = "form-group">
+    {% block content %}
+    <form method="POST" class="form-group">
         {% csrf_token %}
-        <button type="submit" class="btn btn-success">Register</button>
+
+        <button type="submit" class="btn btn-success">Rejestracja</button>
     </form>
-{% endblock %}
+    {% endblock %}
+</head>
+<body>
+
+</body>
+</html>

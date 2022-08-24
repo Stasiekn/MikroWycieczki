@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{{ post.title }}</h2>
+            <div>
+                <small>Utworzono {{ post.created }}, Zmodyfikowano {{ post.modified }}</small>
+            </div>
+            <div>
+                <p>{{ post.content }}</p>
+            </div>
+            {% if post.example_file %}
+                <div>Pobierz <a href="{{ post.example_file.url }}">Przykład</a></div>
+            {%  endif %}
+        </div>
+        <div class="col-md-3">
+            <img src="{{ post.example_file.url }}">
+        </div>
+    </div>
+</body>
+</html>

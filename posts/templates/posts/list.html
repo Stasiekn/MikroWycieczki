@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Lista postow</h1>
-</body>
-</html>
+
+{% extends 'general.html' %}
+{% load static %}
+{% block styles %}
+<link href="{% static "main/css/style.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="banner-area relative">
+        <div class="container">
+            <div class="bg-image" style="background-image: url('https://images-s3.yogainternational.com/cdn-cgi/image/width=1600,quality=70,format=auto/assets/content/articles/ZID_1442_1920x1080.png')" class="w-100">
+                <div class="overlay hero-overlay-bg">
+                        <div class="row height align-items-center justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="banner-content text-center">
+                                    <h1>Lista postow</h1>
+                                    <ul>
+                                        {% for post in post_list %}
+                                            <li>
+                                                <a href={% url 'posts:post_details' post.id %}>{{ post.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

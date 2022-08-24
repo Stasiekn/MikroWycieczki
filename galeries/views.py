@@ -18,7 +18,7 @@ def gallery_details(request, gallery_id):
 
 
 def galleries_list(request):
-    galleries = Gallery.objects.filter(status=Status.PUBLISHED)
+    galleries = Gallery.objects.all()
     galleries = [g for g in galleries if g.photos.count() > 0]
 
     per_page = request.GET.get('per_page', 3)

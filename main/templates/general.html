@@ -14,7 +14,7 @@
     {% block styles %} {% endblock %}
 </head>
 <body>
-<div class="bg-image" style="background-image: url('https://th.bing.com/th/id/R.ff18221a2a3ecdcb365e0db652985eca?rik=qL%2boEj8WtypEjw&pid=ImgRaw&r=0'); height: 100vh; background-attachment: fixed" >
+<div class="bg-image" style="background-image: url('{% static 'main/img/bg.jpg'%}'); height: 100vh; background-attachment: fixed" >
 
 
 <div class="container ">
@@ -22,15 +22,15 @@
 
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
           <div class="ps-4">
-            <img src="{% static 'main/img/mw.png' %} " height="42" width="103" >
+            <img src="{% static 'main/img/logo.png' %} " height="42" width="103" >
           </div>
       </a>
 
       <ul class="nav nav-pills ">
-          <li class="nav-item"><a href ="#" class="nav-link"> Zaloguj</a></li>
+          <li class="nav-item"><a href ="{% url 'registration:register' %}" class="nav-link"> Zaloguj</a></li>
           <li class="nav-item"><a href ="#" class="nav-link"> O Nas</a></li>
-          <li class="nav-item"><a href ="#" class="nav-link"> Galeria</a></li>
-          <li class="nav-item"><a href ="{% url 'list:list' %}" class="nav-link"> Lista propozycji</a></li>
+          <li class="nav-item"><a href ="{% url 'galleries:list' %}" class="nav-link"> Galeria</a></li>
+          <li class="nav-item"><a href ="{% url 'posts:posts' %}" class="nav-link"> Lista wycieczek</a></li>
 
       </ul>
     </header>
@@ -47,7 +47,7 @@
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       </a>
-      <span class="text-muted">&copy; 2021 Lukasz Nekres, Inc</span>
+      <span class="text-muted">&copy; 2021-2022 Lukasz Nekres, Inc</span>
     </div>
 
   </footer>
