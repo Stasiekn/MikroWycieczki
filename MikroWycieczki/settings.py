@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 
     'import_export',
+    'crispy_forms',
 
     'main.apps.MainConfig',
     'posts.apps.PostsConfig',
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl-PL'
 
 TIME_ZONE = 'UTC'
 
@@ -131,6 +132,9 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'

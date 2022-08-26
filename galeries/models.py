@@ -1,6 +1,16 @@
+import string
+
 from django.db import models
 from common.models import Timestamped, SlugMixin
+from django.utils.text import slugify
+from random import random
 
+def upload_to(instance, filename):
+    return f"galleries/{instance.gallery.title}/{filename}"
+
+def get_random_text(n):
+    letters = string.ascii_letters
+    return ''.join(random.choice(letters) for i in range(n))
 
 class Gallery (Timestamped, SlugMixin):
 
@@ -11,8 +21,7 @@ class Gallery (Timestamped, SlugMixin):
         return self.title
 
 
-def upload_to(instance, filename):
-    return f"galleries/{instance.gallery.slug}/{filename}"
+
 
 
 class Photo(Timestamped):

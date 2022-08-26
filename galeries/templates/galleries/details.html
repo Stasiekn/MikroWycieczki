@@ -15,15 +15,12 @@
                 <div class="col">
                     <h1>{{ gallery.title }}</h1>
                     <section class="photo_gallery">
-                        <h3>To widahć</h3>
                         {% for gallery_image in gallery.photos.all %}
-                            {% if not gallery_image.ispublished %}
                                 {% thumbnail gallery_image.image "x300" as im %}
                                      <a href="{{ gallery_image.image.url }}">
                                         <img src="{{ im.url }}" alt="" title=""/>
                                      </a>
                                 {% endthumbnail %}
-                            {% endif %}
                         {% endfor %}
                     </section>
                 </div>
@@ -39,8 +36,6 @@
         </script>
     {% endblock %}
 </head>
-</head>
-<body>
 
-</body>
+
 </html>
